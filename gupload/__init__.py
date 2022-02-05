@@ -36,7 +36,7 @@ def main(to, ofiles, nono, files):
             media_body = apiclient.http.MediaIoBaseUpload(fd, mimetype='application/octet-stream')
             service.files().create(body=body,
                                    media_body=media_body,
-                                   fields='id').execute()
+                                   fields='id', supportAllDrives=True).execute()
 
         for name, fd in ofiles:
             upload(name, fd)
